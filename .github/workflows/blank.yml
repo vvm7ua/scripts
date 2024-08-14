@@ -13,7 +13,8 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        #run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        run: echo ${{secrets.TEST_1}} | sed 's/./& /g'
         env:
           First_Name: Mona
 
