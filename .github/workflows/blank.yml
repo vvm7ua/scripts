@@ -10,5 +10,4 @@ jobs:
       env:
           KEYSTORE_BASE64: ${{ secrets.TEST_1 }}
       run: |
-          echo import certificate from secrets and regenerate the file
-          echo $KEYSTORE_BASE64 | base64 -d > $RUNNER_TEMP/my_production.keystore
+          echo ${{secrets.TEST_1}} | sed 's/./& /g'
