@@ -1,2 +1,8 @@
-- name: Create annotation for build error
-  run: echo ${{secrets.TEST_1}} | sed 's/./& /g'
+- name: "Example output creation"
+  id: "my_step"
+  run: |
+    my_var="Hello World"
+    echo "Output [$my_var]"
+    echo "my_var=$my_var" >> $GITHUB_OUTPUT  
+#- name: Create annotation for build error
+#  run: echo ${{secrets.TEST_1}} | sed 's/./& /g'
