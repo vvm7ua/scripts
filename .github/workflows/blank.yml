@@ -1,8 +1,21 @@
-- name: "Example output creation"
-  id: "my_step"
-  run: |
-    my_var="Hello World"
-    echo "Output [$my_var]"
-    echo "my_var=$my_var" >> $GITHUB_OUTPUT  
+name: Greeting on variable day
+
+on:
+  workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Monday
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
+
 #- name: Create annotation for build error
 #  run: echo ${{secrets.TEST_1}} | sed 's/./& /g'
